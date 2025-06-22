@@ -1,0 +1,55 @@
+" Source your .vimrc
+source ~/.vimrc
+
+" Leader
+let mapleader=" "
+
+" Options
+set scrolloff=5
+set incsearch
+set NERDTree
+
+" Plugins
+Plug 'machakann/vim-highlightedyank'
+Plug 'tpope/vim-commentary'
+
+" Mappings
+map Q gq
+
+" Windows Splitting
+nmap <Leader>\ :vsplit<CR>
+nmap <Leader>v :vsplit<CR>
+nmap <Leader>- :split<CR>
+nmap <Leader>h :split<CR>
+
+" Windows Navigation
+map <C-J> <C-W>j
+map <C-K> <C-W>k
+map <C-L> <C-W>l
+map <C-H> <C-W>h
+
+" Tabs Navigation
+nmap <S-l> <Action>(NextTab)
+nmap <S-h> <Action>(PreviousTab)
+
+" File Tree
+nmap <Leader>e :action ActivateProjectToolWindow<CR>
+
+" Panels
+nmap <Leader>q :action HideAllWindows<CR>
+map <Leader>z <Action>(ToggleDistractionFreeMode)
+nmap <Leader>t :action ActivateTerminalToolWindow<CR>
+
+" Find
+map <leader>fw <Action>(ActivateFindToolWindow)
+map <leader>/ <Action>(FindInPath)
+nnoremap <leader><space> :action GotoFile<CR>
+map n <Action>(FindNext)
+map N <Action>(FindPrevious)
+
+" Formatting
+nnoremap <leader>cf :action ReformatCode<CR>
+
+
+set number 
+set relativenumber

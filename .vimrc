@@ -11,3 +11,9 @@ vnoremap C "_C
 vnoremap p "_dP
 
 set clipboard=unnamed  
+
+nnoremap ye yiw
+nnoremap de diw
+nnoremap ce ciw
+
+nnoremap ee "_diwP  "

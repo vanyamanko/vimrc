@@ -1,6 +1,32 @@
 " Source your .vimrc
 source ~/.vimrc
 
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+
+autocmd BufEnter * set hlsearch
+augroup no_highlight
+  autocmd!
+  autocmd CursorMoved * if &hlsearch | nohlsearch | endif
+augroup END
+nnoremap <silent> <Esc> :nohlsearch<CR>
+
+nnoremap <silent> n nzzzv
+nnoremap <silent> N Nzzzv
+
+nnoremap <silent> <leader>nh :nohlsearch<CR>
+
+vnoremap // y/<C-R>"<CR>
+
+nnoremap <silent> * :let @/ = '\<'.expand('<cword>').'\>'<CR>:set hlsearch<CR>
+
+vnoremap <silent> * :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy:let @/=substitute(escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>:set hlsearch<CR>
+
 " Leader
 let mapleader=" "
 
@@ -44,12 +70,10 @@ nmap <Leader>t :action ActivateTerminalToolWindow<CR>
 map <leader>fw <Action>(ActivateFindToolWindow)
 map <leader>/ <Action>(FindInPath)
 nnoremap <leader><space> :action GotoFile<CR>
-map n <Action>(FindNext)
-map N <Action>(FindPrevious)
 
 " Formatting
 nnoremap <leader>cf :action ReformatCode<CR>
 
 
-set number 
+set number
 set relativenumber

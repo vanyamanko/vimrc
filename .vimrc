@@ -17,3 +17,4 @@ nnoremap de diw
 nnoremap ce ciw
 
 nnoremap ee "_diwP  "
+inoremap <Esc> <Esc>l
